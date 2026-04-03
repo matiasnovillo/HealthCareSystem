@@ -2,7 +2,7 @@
 using HealthCareSystem.Infrastructure.Persistence.Configurations;
 using Microsoft.EntityFrameworkCore;
 
-namespace HealthCareSystem.Infrastructure.Persistence
+namespace DoctorsAPI.Infrastructure.Persistence
 {
     public class DoctorDbContext : DbContext
     {

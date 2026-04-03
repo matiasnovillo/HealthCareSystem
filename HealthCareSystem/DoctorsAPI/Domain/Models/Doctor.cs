@@ -16,10 +16,12 @@
             {
                 throw new ArgumentException("First name cannot be empty.", nameof(firstName));
             }
+
             if (string.IsNullOrWhiteSpace(lastName))
             {
                 throw new ArgumentException("Last name cannot be empty.", nameof(lastName));
             }
+
             if (string.IsNullOrWhiteSpace(specialty))
             {
                 throw new ArgumentException("Specialty cannot be empty.", nameof(specialty));
@@ -29,6 +31,16 @@
             FirstName = firstName;
             LastName = lastName;
             Specialty = specialty;
+        }
+
+        public void UpdateSpecialty(string newSpecialty)
+        {
+            if (string.IsNullOrWhiteSpace(newSpecialty))
+            {
+                throw new ArgumentException("Specialty cannot be empty.", nameof(newSpecialty));
+            }
+
+            Specialty = newSpecialty;
         }
     }
 }

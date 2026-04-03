@@ -1,0 +1,33 @@
+@PatientsAPI_HostAddress = http://localhost:5290
+@patientId = 7caefab0-c20c-4569-bd4a-5f1a17f28412
+
+### Retrieve all patients
+GET {{PatientsAPI_HostAddress}}/api/Patient/GetAll
+Accept: application/json
+
+### Retrieve one patient by ID
+GET {{PatientsAPI_HostAddress}}/api/Patient/GetOneByGUID/{{patientId}}
+Accept: application/json
+
+### Create a new patient
+POST {{PatientsAPI_HostAddress}}/api/Patient/Post
+Content-Type: application/json
+
+{
+  "firstName": "Matias",
+  "lastName": "Novillo",
+  "email": "novillo.matias1@gmail.com"
+}
+
+### Update a patient
+PUT {{PatientsAPI_HostAddress}}/api/Patient/Put/{{patientId}}
+Content-Type: application/json
+{
+  "patientId": "{{patientId}}",
+  "firstName": "Marcos",
+  "lastName": "Novillo",
+  "email": "novillo.matias1@gmail.com"
+}
+
+### Delete a patient
+DELETE {{PatientsAPI_HostAddress}}/api/Patient/Delete/{{patientId}}

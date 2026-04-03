@@ -11,6 +11,11 @@
         "Path": "DoctorsAPI\\DoctorsAPI.csproj",
         "Action": "Start",
         "DebugTarget": "https"
+      },
+      {
+        "Path": "PatientsAPI\\PatientsAPI.csproj",
+        "Action": "Start",
+        "DebugTarget": "https"
       }
     ]
   }
