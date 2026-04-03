@@ -1,4 +1,4 @@
-﻿namespace HealthCareSystem.Infrastructure.ExternalServices.Patient
+﻿namespace HealthCareSystem.Infrastructure.ExternalServices.HttpClients.Patient
 {
     public record PatientResponse(
         Guid PatientId,

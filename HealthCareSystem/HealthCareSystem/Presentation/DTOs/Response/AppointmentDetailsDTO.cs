@@ -1,5 +1,6 @@
-﻿using HealthCareSystem.Infrastructure.ExternalServices.Doctor;
-using HealthCareSystem.Infrastructure.ExternalServices.Patient;
+﻿using HealthCareSystem.Infrastructure.ExternalServices.gRPCClients.Document;
+using HealthCareSystem.Infrastructure.ExternalServices.HttpClients.Doctor;
+using HealthCareSystem.Infrastructure.ExternalServices.HttpClients.Patient;
 
 namespace HealthCareSystem.Presentation.DTOs.Response
 {
@@ -11,6 +12,7 @@ namespace HealthCareSystem.Presentation.DTOs.Response
         DateTime EndTime,
         string RoomNumber,
         string Building,
-        string Purpose
+        string Purpose,
+        DocumentList DocumentList
         );
 }

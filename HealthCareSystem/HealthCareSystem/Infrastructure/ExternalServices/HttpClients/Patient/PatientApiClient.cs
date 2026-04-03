@@ -1,6 +1,6 @@
 ﻿using HealthCareSystem.Application.Interfaces.Patient;
 
-namespace HealthCareSystem.Infrastructure.ExternalServices.Patient
+namespace HealthCareSystem.Infrastructure.ExternalServices.HttpClients.Patient
 {
     public class PatientApiClient(HttpClient httpClient) : IPatientService
     {

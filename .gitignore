@@ -5,3 +5,5 @@
 /HealthCareSystem/DoctorsAPI/obj
 /HealthCareSystem/PatientsAPI/bin
 /HealthCareSystem/PatientsAPI/obj
+/HealthCareSystem/gRPCDocuments/obj
+/HealthCareSystem/gRPCDocuments/bin

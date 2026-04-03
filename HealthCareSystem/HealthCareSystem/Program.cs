@@ -1,7 +1,7 @@
 using HealthCareSystem.Application.Interfaces.Doctor;
 using HealthCareSystem.Application.Interfaces.Patient;
-using HealthCareSystem.Infrastructure.ExternalServices.Doctor;
-using HealthCareSystem.Infrastructure.ExternalServices.Patient;
+using HealthCareSystem.Infrastructure.ExternalServices.HttpClients.Doctor;
+using HealthCareSystem.Infrastructure.ExternalServices.HttpClients.Patient;
 using HealthCareSystem.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 

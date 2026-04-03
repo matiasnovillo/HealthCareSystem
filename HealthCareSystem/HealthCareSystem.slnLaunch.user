@@ -16,6 +16,11 @@
         "Path": "PatientsAPI\\PatientsAPI.csproj",
         "Action": "Start",
         "DebugTarget": "https"
+      },
+      {
+        "Path": "gRPCDocuments\\gRPCDocuments.csproj",
+        "Action": "Start",
+        "DebugTarget": "https"
       }
     ]
   }

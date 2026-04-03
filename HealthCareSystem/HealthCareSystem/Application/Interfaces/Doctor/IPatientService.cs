@@ -1,4 +1,4 @@
-﻿using HealthCareSystem.Infrastructure.ExternalServices.Doctor;
+﻿using HealthCareSystem.Infrastructure.ExternalServices.HttpClients.Doctor;
 
 namespace HealthCareSystem.Application.Interfaces.Doctor
 {

@@ -1,9 +1,11 @@
+using Grpc.Net.Client;
 using HealthCareSystem.Application.Interfaces.Doctor;
 using HealthCareSystem.Application.Interfaces.Patient;
 using HealthCareSystem.Domain.Models;
 using HealthCareSystem.Domain.ValueObjects;
-using HealthCareSystem.Infrastructure.ExternalServices.Doctor;
-using HealthCareSystem.Infrastructure.ExternalServices.Patient;
+using HealthCareSystem.Infrastructure.ExternalServices.gRPCClients.Document;
+using HealthCareSystem.Infrastructure.ExternalServices.HttpClients.Doctor;
+using HealthCareSystem.Infrastructure.ExternalServices.HttpClients.Patient;
 using HealthCareSystem.Infrastructure.Persistence;
 using HealthCareSystem.Presentation.DTOs.Request;
 using HealthCareSystem.Presentation.DTOs.Response;
@@ -13,7 +15,11 @@ using Microsoft.EntityFrameworkCore;
 namespace HealthCareSystem.Presentation.Controllers
 {
     [ApiController]
-    public class AppointmentController(AppointmentDbContext _context, IPatientService _patientService, IDoctorService _doctorService) : ControllerBase
+    public class AppointmentController(
+        AppointmentDbContext _context, 
+        IPatientService _patientService, 
+        IDoctorService _doctorService, 
+        IConfiguration _configuration) : ControllerBase
     {
         [HttpGet("api/Appointment/GetAll")]
         public async Task<ActionResult<IEnumerable<Appointment>>> GetAll()
@@ -44,8 +50,14 @@ namespace HealthCareSystem.Presentation.Controllers
                 return NotFound();
             }
 
+            //Http calls
             PatientResponse PatientResponse = await _patientService.GetOneByIdAsync(Appointment.PatientId);
             DoctorResponse DoctorResponse = await _doctorService.GetOneByIdAsync(Appointment.DoctorId);
+
+            //gRPC calls
+            using GrpcChannel GrpcChannel = GrpcChannel.ForAddress(_configuration["GrpcEndpoints:DocumentService"]);
+            var Client = new DocumentService.DocumentServiceClient(GrpcChannel);
+            var documents = await Client.GetAllAsync(new PatientId { Id = PatientResponse.PatientId.ToString() });
 
             AppointmentDetailsDTO AppointmentDetailsDTO = new(
                 id,
@@ -55,7 +67,8 @@ namespace HealthCareSystem.Presentation.Controllers
                 Appointment.TimeSlot.End,
                 Appointment.Location.RoomNumber,
                 Appointment.Location.Building,
-                Appointment.Purpose
+                Appointment.Purpose,
+                documents
                 );
 
             return Ok(AppointmentDetailsDTO);

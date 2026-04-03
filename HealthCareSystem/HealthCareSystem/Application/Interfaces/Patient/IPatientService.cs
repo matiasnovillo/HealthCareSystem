@@ -1,4 +1,4 @@
-﻿using HealthCareSystem.Infrastructure.ExternalServices.Patient;
+﻿using HealthCareSystem.Infrastructure.ExternalServices.HttpClients.Patient;
 
 namespace HealthCareSystem.Application.Interfaces.Patient
 {
