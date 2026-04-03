@@ -1,14 +1,19 @@
+using HealthCareSystem.Application.Interfaces.Doctor;
+using HealthCareSystem.Application.Interfaces.Patient;
 using HealthCareSystem.Domain.Models;
 using HealthCareSystem.Domain.ValueObjects;
+using HealthCareSystem.Infrastructure.ExternalServices.Doctor;
+using HealthCareSystem.Infrastructure.ExternalServices.Patient;
 using HealthCareSystem.Infrastructure.Persistence;
 using HealthCareSystem.Presentation.DTOs.Request;
+using HealthCareSystem.Presentation.DTOs.Response;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace HealthCareSystem.Presentation.Controllers
 {
     [ApiController]
-    public class AppointmentController(AppointmentDbContext _context) : ControllerBase
+    public class AppointmentController(AppointmentDbContext _context, IPatientService _patientService, IDoctorService _doctorService) : ControllerBase
     {
         [HttpGet("api/Appointment/GetAll")]
         public async Task<ActionResult<IEnumerable<Appointment>>> GetAll()
@@ -27,6 +32,33 @@ namespace HealthCareSystem.Presentation.Controllers
             }
 
             return Ok(appointment);
+        }
+
+        [HttpGet("api/Appointment/GetOneByGUID/{id}/Details")]
+        public async Task<IActionResult> Details(Guid id)
+        {
+            Appointment? Appointment = await _context.Appointment.FindAsync(id);
+
+            if (Appointment == null)
+            {
+                return NotFound();
+            }
+
+            PatientResponse PatientResponse = await _patientService.GetOneByIdAsync(Appointment.PatientId);
+            DoctorResponse DoctorResponse = await _doctorService.GetOneByIdAsync(Appointment.DoctorId);
+
+            AppointmentDetailsDTO AppointmentDetailsDTO = new(
+                id,
+                DoctorResponse,
+                PatientResponse,
+                Appointment.TimeSlot.Start,
+                Appointment.TimeSlot.End,
+                Appointment.Location.RoomNumber,
+                Appointment.Location.Building,
+                Appointment.Purpose
+                );
+
+            return Ok(AppointmentDetailsDTO);
         }
 
         [HttpPost("api/Appointment/Post")]

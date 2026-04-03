@@ -1,3 +1,7 @@
+using HealthCareSystem.Application.Interfaces.Doctor;
+using HealthCareSystem.Application.Interfaces.Patient;
+using HealthCareSystem.Infrastructure.ExternalServices.Doctor;
+using HealthCareSystem.Infrastructure.ExternalServices.Patient;
 using HealthCareSystem.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 
@@ -7,6 +11,18 @@ builder.Services.AddControllers();
 
 builder.Services.AddDbContext<AppointmentDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// Register PatientsApiClient
+builder.Services.AddHttpClient<IPatientService, PatientApiClient>(client =>
+{
+    client.BaseAddress = new Uri(builder.Configuration["ApiEndpoints:PatientsApi"]);
+});
+
+// Register DoctorsApiClient
+builder.Services.AddHttpClient<IDoctorService, DoctorApiClient>(client =>
+{
+    client.BaseAddress = new Uri(builder.Configuration["ApiEndpoints:DoctorsApi"]);
+});
 
 builder.Services.AddOpenApi();
 

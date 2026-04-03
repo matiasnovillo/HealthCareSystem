@@ -1,4 +1,5 @@
 using DoctorsAPI.Domain.Models;
+using DoctorsAPI.Infrastructure.Persistence;
 using DoctorsAPI.Presentation.DTOs;
 using HealthCareSystem.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Mvc;

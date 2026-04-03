@@ -1,5 +1,5 @@
 @HealthCareSystem_HostAddress = http://localhost:5186
-@appointmentId = 93327082-9227-4745-b83d-06832cb86c3c
+@appointmentId = 25d45048-8ffd-4cb4-b023-99a2d02c5923
 
 ### Retrieve all appointments
 GET {{HealthCareSystem_HostAddress}}/api/Appointment/GetAll
@@ -9,18 +9,22 @@ Accept: application/json
 GET {{HealthCareSystem_HostAddress}}/api/Appointment/GetOneByGUID/{{appointmentId}}
 Accept: application/json
 
+### Retrieve one appointment with details
+GET {{HealthCareSystem_HostAddress}}/api/Appointment/GetOneByGUID/{{appointmentId}}/Details
+Accept: application/json
+
 ### Create a new appointment
 POST {{HealthCareSystem_HostAddress}}/api/Appointment/Post
 Content-Type: application/json
 
 {
-  "patientId": "987e6543-e21b-34d3-c456-426614174111",
-  "doctorId": "654e3210-e54b-56d3-d456-426614174222",
-  "startTime": "2026-12-15T10:00:00",
-  "endTime": "2026-12-15T11:00:00",
-  "roomNumber": "101",
-  "building": "Main Building",
-  "purpose": "General Consultation"
+  "patientId": "d76d0ef5-7fe7-42a6-99cf-5df297968d9b",
+  "doctorId": "7caefab0-c20c-4569-bd4a-5f1a17f28412",
+  "startTime": "2026-12-15T18:00:00",
+  "endTime": "2026-12-15T19:00:00",
+  "roomNumber": "120",
+  "building": "Caseros",
+  "purpose": "Consulta general"
 }
 
 ### Update an appointment

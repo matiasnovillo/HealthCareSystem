@@ -14,9 +14,9 @@ POST {{PatientsAPI_HostAddress}}/api/Patient/Post
 Content-Type: application/json
 
 {
-  "firstName": "Matias",
-  "lastName": "Novillo",
-  "email": "novillo.matias1@gmail.com"
+  "firstName": "Rossana",
+  "lastName": "Moya",
+  "email": "roxymoya@gmail.com"
 }
 
 ### Update a patient
