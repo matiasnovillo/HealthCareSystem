@@ -1,7 +1,12 @@
 @HealthCareSystem_HostAddress = http://localhost:5186
+@appointmentId = 93327082-9227-4745-b83d-06832cb86c3c
 
 ### Retrieve all appointments
 GET {{HealthCareSystem_HostAddress}}/api/Appointment/GetAll
+Accept: application/json
+
+### Retrieve one appointment by ID
+GET {{HealthCareSystem_HostAddress}}/api/Appointment/GetOneByGUID/{{appointmentId}}
 Accept: application/json
 
 ### Create a new appointment
@@ -17,3 +22,20 @@ Content-Type: application/json
   "building": "Main Building",
   "purpose": "General Consultation"
 }
+
+### Update an appointment
+PUT {{HealthCareSystem_HostAddress}}/api/Appointment/Put/{{appointmentId}}
+Content-Type: application/json
+{
+  "appointmentId": "{{appointmentId}}",
+  "patientId": "987e6543-e21b-34d3-c456-426614174111",
+  "doctorId": "654e3210-e54b-56d3-d456-426614174222",
+  "startTime": "2026-12-15T10:30:00",
+  "endTime": "2026-12-15T11:30:00",
+  "roomNumber": "201",
+  "building": "Second Building",
+  "purpose": "Follow-up Consultation"
+}
+
+### Delete an appointment
+DELETE {{HealthCareSystem_HostAddress}}/api/Appointment/Delete/{{appointmentId}}

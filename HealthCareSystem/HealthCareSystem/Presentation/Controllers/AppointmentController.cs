@@ -17,7 +17,7 @@ namespace HealthCareSystem.Presentation.Controllers
         }
 
         [HttpGet("api/Appointment/GetOneByGUID/{id}")]
-        public async Task<ActionResult<Appointment>> GetAppointment(Guid id)
+        public async Task<ActionResult<Appointment>> GetOneByGUID(Guid id)
         {
             var appointment = await _context.Appointment.FindAsync(id);
 
@@ -30,7 +30,7 @@ namespace HealthCareSystem.Presentation.Controllers
         }
 
         [HttpPost("api/Appointment/Post")]
-        public async Task<ActionResult<Appointment>> PostAppointment(CreateAppointmentRequestDTO request)
+        public async Task<ActionResult<Appointment>> Post(PostAppointmentRequestDTO request)
         {
             try
             {
@@ -38,10 +38,10 @@ namespace HealthCareSystem.Presentation.Controllers
 
                 Location Location = new(request.RoomNumber, request.Building);
 
-                Guid appointmentId = Guid.NewGuid();
+                Guid AppointmentId = Guid.NewGuid();
 
                 Appointment Appointment = new(
-                    appointmentId,
+                    AppointmentId,
                     request.PatientId,
                     request.DoctorId,
                     TimeSlot,
@@ -53,12 +53,73 @@ namespace HealthCareSystem.Presentation.Controllers
 
                 await _context.SaveChangesAsync();
 
-                return CreatedAtAction("GetAppointment", new { id = Appointment.AppointmentId }, Appointment);
+                return CreatedAtAction(nameof(GetOneByGUID), new { id = Appointment.AppointmentId }, Appointment);
             }
             catch (ArgumentException ex)
             {
                 return BadRequest(ex.Message);
             }
+        }
+
+        [HttpPut("api/Appointment/Put/{id}")]
+        public async Task<IActionResult> Put(Guid id, PutAppointmentRequestDTO request)
+        {
+            if (id != request.AppointmentId)
+            {
+                return BadRequest("ID in URL does not match ID in request body.");
+            }
+
+            TimeSlot TimeSlot = new(request.StartTime, request.EndTime);
+            
+            Location Location = new(request.RoomNumber, request.Building);
+
+            Appointment Appointment = new(
+                request.AppointmentId,
+                request.PatientId,
+                request.DoctorId,
+                TimeSlot,
+                Location,
+                request.Purpose
+            );
+
+            _context.Entry(Appointment).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                bool AppointmentExists = _context.Appointment.Any(e => e.AppointmentId == id);
+
+                if (!AppointmentExists)
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
+        }
+
+        [HttpDelete("api/Appointment/Delete/{id}")]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            Appointment? Appointment = await _context.Appointment.FindAsync(id);
+
+            if (Appointment == null)
+            {
+                return NotFound();
+            }
+
+            _context.Appointment.Remove(Appointment);
+
+            await _context.SaveChangesAsync();
+
+            return NoContent();
         }
     }
 }

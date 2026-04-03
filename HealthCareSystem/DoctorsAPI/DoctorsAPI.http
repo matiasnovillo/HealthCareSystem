@@ -1,0 +1,33 @@
+@DoctorsAPI_HostAddress = http://localhost:5244
+@doctorId = 7caefab0-c20c-4569-bd4a-5f1a17f28412
+
+### Retrieve all doctors
+GET {{DoctorsAPI_HostAddress}}/api/Doctor/GetAll
+Accept: application/json
+
+### Retrieve one doctor by ID
+GET {{DoctorsAPI_HostAddress}}/api/Doctor/GetOneByGUID/{{doctorId}}
+Accept: application/json
+
+### Create a new doctor
+POST {{DoctorsAPI_HostAddress}}/api/Doctor/Post
+Content-Type: application/json
+
+{
+  "firstName": "Matias",
+  "lastName": "Novillo",
+  "specialty": "Medico clinico"
+}
+
+### Update a doctor
+PUT {{DoctorsAPI_HostAddress}}/api/Doctor/Put/{{doctorId}}
+Content-Type: application/json
+{
+  "doctorId": "{{doctorId}}",
+  "firstName": "Matias",
+  "lastName": "Novillo",
+  "specialty": "Cirujano"
+}
+
+### Delete a doctor
+DELETE {{DoctorsAPI_HostAddress}}/api/Doctor/Delete/{{doctorId}}

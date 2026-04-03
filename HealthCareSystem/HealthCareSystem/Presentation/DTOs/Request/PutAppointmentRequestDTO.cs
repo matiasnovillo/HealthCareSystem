@@ -1,6 +1,7 @@
 ﻿namespace HealthCareSystem.Presentation.DTOs.Request
 {
-    public record CreateAppointmentRequestDTO(
+    public record PutAppointmentRequestDTO(
+        Guid AppointmentId,
         Guid PatientId,
         Guid DoctorId,
         DateTime StartTime,
