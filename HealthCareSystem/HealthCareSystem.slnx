@@ -1,6 +1,7 @@
 <Solution>
   <Project Path="DoctorsAPI/DoctorsAPI.csproj" Id="e6e54a98-d2c8-4cc0-8580-e323a8ab53f5" />
   <Project Path="gRPCDocuments/gRPCDocuments.csproj" Id="94dc2b29-f423-40fa-9ed1-4a85db015306" />
+  <Project Path="HealthCareSystem.IntegratedEvents/HealthCareSystem.IntegratedEvents.csproj" Id="ade6d6e0-86e7-42ca-9d79-a53515bf5abc" />
   <Project Path="HealthCareSystem/HealthCareSystem.csproj" />
   <Project Path="PatientsAPI/PatientsAPI.csproj" Id="650c4950-1857-4d64-a54c-30e77feb24a7" />
 </Solution>

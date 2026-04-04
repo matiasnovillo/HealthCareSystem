@@ -7,3 +7,5 @@
 /HealthCareSystem/PatientsAPI/obj
 /HealthCareSystem/gRPCDocuments/obj
 /HealthCareSystem/gRPCDocuments/bin
+/HealthCareSystem/HealthCareSystem.IntegratedEvents/bin
+/HealthCareSystem/HealthCareSystem.IntegratedEvents/obj

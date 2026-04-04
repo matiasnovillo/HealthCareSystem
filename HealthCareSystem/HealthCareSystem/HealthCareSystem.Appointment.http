@@ -23,8 +23,8 @@ Content-Type: application/json
   "startTime": "2026-12-15T18:00:00",
   "endTime": "2026-12-15T19:00:00",
   "roomNumber": "120",
-  "building": "Caseros",
-  "purpose": "Consulta general"
+  "building": "Sarmiento",
+  "purpose": "Consulta sobre dolor de estomago"
 }
 
 ### Update an appointment
@@ -32,8 +32,8 @@ PUT {{HealthCareSystem_HostAddress}}/api/Appointment/Put/{{appointmentId}}
 Content-Type: application/json
 {
   "appointmentId": "{{appointmentId}}",
-  "patientId": "987e6543-e21b-34d3-c456-426614174111",
-  "doctorId": "654e3210-e54b-56d3-d456-426614174222",
+  "patientId": "d76d0ef5-7fe7-42a6-99cf-5df297968d9b",
+  "doctorId": "7caefab0-c20c-4569-bd4a-5f1a17f28412",
   "startTime": "2026-12-15T10:30:00",
   "endTime": "2026-12-15T11:30:00",
   "roomNumber": "201",

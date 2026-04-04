@@ -2,7 +2,9 @@ using HealthCareSystem.Application.Interfaces.Doctor;
 using HealthCareSystem.Application.Interfaces.Patient;
 using HealthCareSystem.Infrastructure.ExternalServices.HttpClients.Doctor;
 using HealthCareSystem.Infrastructure.ExternalServices.HttpClients.Patient;
+using HealthCareSystem.Infrastructure.Messaging.Consumers;
 using HealthCareSystem.Infrastructure.Persistence;
+using MassTransit;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,6 +25,23 @@ builder.Services.AddHttpClient<IDoctorService, DoctorApiClient>(client =>
 {
     client.BaseAddress = new Uri(builder.Configuration["ApiEndpoints:DoctorsApi"]);
 });
+
+//Register MassTransit/RabbitMQ and the consumer
+builder.Services.AddMassTransit(x =>
+{
+    x.AddConsumer<AppointmentCreatedConsumer>();
+    x.UsingRabbitMq((context, cfg) =>
+    {
+        // Configure the receive endpoint
+        cfg.ReceiveEndpoint("appointment_created_queue", e =>
+        {
+            e.PrefetchCount = 1; // Fetch one message at a time
+            e.UseConcurrencyLimit(1); // Process one message at a time
+            e.ConfigureConsumer<AppointmentCreatedConsumer>(context);
+        });
+    });
+});
+
 
 builder.Services.AddOpenApi();
 

@@ -7,8 +7,10 @@ using HealthCareSystem.Infrastructure.ExternalServices.gRPCClients.Document;
 using HealthCareSystem.Infrastructure.ExternalServices.HttpClients.Doctor;
 using HealthCareSystem.Infrastructure.ExternalServices.HttpClients.Patient;
 using HealthCareSystem.Infrastructure.Persistence;
+using HealthCareSystem.IntegratedEvents.Events;
 using HealthCareSystem.Presentation.DTOs.Request.Appointment;
 using HealthCareSystem.Presentation.DTOs.Response;
+using MassTransit;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -18,7 +20,8 @@ namespace HealthCareSystem.Presentation.Controllers
     public class AppointmentController(
         AppointmentDbContext _context, 
         IPatientService _patientService, 
-        IDoctorService _doctorService, 
+        IDoctorService _doctorService,
+        IPublishEndpoint _publishEndpoint,
         IConfiguration _configuration) : ControllerBase
     {
         [HttpGet("api/Appointment/GetAll")]
@@ -95,6 +98,17 @@ namespace HealthCareSystem.Presentation.Controllers
                 );
 
                 _context.Appointment.Add(Appointment);
+
+                //Notify other services about the new appointment, for example EmailService to send notifications
+                await _publishEndpoint.Publish<AppointmentCreated>(new AppointmentCreated
+                {
+                    MessageId = Appointment.AppointmentId,
+                    AppointmentId = Appointment.AppointmentId,
+                    DoctorId = Appointment.DoctorId,
+                    PatientId = Appointment.PatientId,
+                    AppointmentDate = DateTime.Now,
+                    Timestamp = DateTime.UtcNow
+                });
 
                 await _context.SaveChangesAsync();
 
