@@ -1,8 +1,8 @@
-﻿using DoctorsAPI.Domain.Models;
+﻿using HealthCareSystem.DoctorsAPI.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace DoctorsAPI.Infrastructure.Persistence.Configurations
+namespace HealthCareSystem.DoctorsAPI.Infrastructure.Persistence.Configurations
 {
     public class DoctorConfiguration : IEntityTypeConfiguration<Doctor>
     {

@@ -1,4 +1,4 @@
-using HealthCareSystem.Infrastructure.Persistence;
+using HealthCareSystem.PatientsAPI.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

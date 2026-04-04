@@ -1,4 +1,4 @@
-﻿namespace DoctorsAPI.Presentation.DTOs
+﻿namespace HealthCareSystem.DoctorsAPI.Presentation.DTOs
 {
     public record PutDoctorRequestDTO(
         Guid DoctorId,

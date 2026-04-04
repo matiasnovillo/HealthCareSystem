@@ -1,8 +1,8 @@
-﻿using HealthCareSystem.Infrastructure.ExternalServices.gRPCClients.Document;
-using HealthCareSystem.Infrastructure.ExternalServices.HttpClients.Doctor;
-using HealthCareSystem.Infrastructure.ExternalServices.HttpClients.Patient;
+﻿using HealthCareSystem.AppointmentsAPI.Infrastructure.ExternalServices.gRPCClients.Document;
+using HealthCareSystem.AppointmentsAPI.Infrastructure.ExternalServices.HttpClients.Doctor;
+using HealthCareSystem.AppointmentsAPI.Infrastructure.ExternalServices.HttpClients.Patient;
 
-namespace HealthCareSystem.Presentation.DTOs.Response
+namespace HealthCareSystem.AppointmentsAPI.Presentation.DTOs.Response
 {
     public record AppointmentDetailsDTO(
         Guid AppointmentId,

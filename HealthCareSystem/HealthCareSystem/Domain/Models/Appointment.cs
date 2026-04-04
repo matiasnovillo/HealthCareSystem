@@ -1,6 +1,6 @@
-﻿using HealthCareSystem.Domain.ValueObjects;
+﻿using HealthCareSystem.AppointmentsAPI.Domain.ValueObjects;
 
-namespace HealthCareSystem.Domain.Models
+namespace HealthCareSystem.AppointmentsAPI.Domain.Models
 {
     public class Appointment
     {

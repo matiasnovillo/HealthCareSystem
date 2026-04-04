@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using PatientsAPI.Domain.Models;
-using PatientsAPI.Infrastructure.Persistence.Configurations;
+using HealthCareSystem.PatientsAPI.Domain.Models;
+using HealthCareSystem.PatientsAPI.Infrastructure.Persistence.Configurations;
 
-namespace HealthCareSystem.Infrastructure.Persistence
+namespace HealthCareSystem.PatientsAPI.Infrastructure.Persistence
 {
     public class PatientDbContext : DbContext
     {

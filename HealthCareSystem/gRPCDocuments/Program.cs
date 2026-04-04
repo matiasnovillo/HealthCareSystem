@@ -1,5 +1,5 @@
-using gRPCDocuments.Infrastructure.Persistence;
-using gRPCDocuments.Presentation.Services;
+using HealthCareSystem.gRPCDocuments.Infrastructure.Persistence;
+using HealthCareSystem.gRPCDocuments.Presentation.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

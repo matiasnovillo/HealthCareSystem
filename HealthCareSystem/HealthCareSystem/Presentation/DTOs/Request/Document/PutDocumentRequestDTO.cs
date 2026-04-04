@@ -1,4 +1,4 @@
-﻿namespace HealthCareSystem.Presentation.DTOs.Request.Document
+﻿namespace HealthCareSystem.AppointmentsAPI.Presentation.DTOs.Request.Document
 {
     public record PutDocumentRequestDTO(
         Guid DocumentId,

@@ -1,9 +1,9 @@
 ﻿using Grpc.Net.Client;
-using HealthCareSystem.Infrastructure.ExternalServices.gRPCClients.Document;
-using HealthCareSystem.Presentation.DTOs.Request.Document;
+using HealthCareSystem.AppointmentsAPI.Infrastructure.ExternalServices.gRPCClients.Document;
+using HealthCareSystem.AppointmentsAPI.Presentation.DTOs.Request.Document;
 using Microsoft.AspNetCore.Mvc;
 
-namespace HealthCareSystem.Presentation.Controllers
+namespace HealthCareSystem.AppointmentsAPI.Presentation.Controllers
 {
     [ApiController]
     public class DocumentController(IConfiguration _configuration) : ControllerBase

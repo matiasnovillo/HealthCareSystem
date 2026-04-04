@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using PatientsAPI.Domain.Models;
+using HealthCareSystem.PatientsAPI.Domain.Models;
 
-namespace PatientsAPI.Infrastructure.Persistence.Configurations
+namespace HealthCareSystem.PatientsAPI.Infrastructure.Persistence.Configurations
 {
     public class PatientConfiguration : IEntityTypeConfiguration<Patient>
     {

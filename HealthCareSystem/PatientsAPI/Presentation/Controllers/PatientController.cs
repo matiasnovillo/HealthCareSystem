@@ -1,10 +1,10 @@
-using PatientsAPI.Domain.Models;
-using PatientsAPI.Presentation.DTOs;
-using HealthCareSystem.Infrastructure.Persistence;
+using HealthCareSystem.PatientsAPI.Domain.Models;
+using HealthCareSystem.PatientsAPI.Presentation.DTOs;
+using HealthCareSystem.PatientsAPI.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace PatientsAPI.Presentation.Controllers
+namespace HealthCareSystem.PatientsAPI.Presentation.Controllers
 {
     [ApiController]
     public class PatientController(PatientDbContext _context) : ControllerBase

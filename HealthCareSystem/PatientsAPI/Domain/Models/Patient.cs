@@ -1,4 +1,4 @@
-﻿namespace PatientsAPI.Domain.Models
+﻿namespace HealthCareSystem.PatientsAPI.Domain.Models
 {
     public class Patient
     {

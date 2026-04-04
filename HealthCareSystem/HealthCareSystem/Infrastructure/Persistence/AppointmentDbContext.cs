@@ -1,10 +1,10 @@
-﻿using HealthCareSystem.Domain.Models;
-using HealthCareSystem.Infrastructure.Persistence.Configurations;
+﻿using HealthCareSystem.AppointmentsAPI.Domain.Models;
+using HealthCareSystem.AppointmentsAPI.Infrastructure.Persistence.Configurations;
 using Microsoft.EntityFrameworkCore;
 using System.Data;
 using System.Reflection.Metadata;
 
-namespace HealthCareSystem.Infrastructure.Persistence
+namespace HealthCareSystem.AppointmentsAPI.Infrastructure.Persistence
 {
     public class AppointmentDbContext : DbContext
     {

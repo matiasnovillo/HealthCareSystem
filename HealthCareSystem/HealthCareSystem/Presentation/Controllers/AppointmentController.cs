@@ -1,20 +1,20 @@
 using Grpc.Net.Client;
-using HealthCareSystem.Application.Interfaces.Doctor;
-using HealthCareSystem.Application.Interfaces.Patient;
-using HealthCareSystem.Domain.Models;
-using HealthCareSystem.Domain.ValueObjects;
-using HealthCareSystem.Infrastructure.ExternalServices.gRPCClients.Document;
-using HealthCareSystem.Infrastructure.ExternalServices.HttpClients.Doctor;
-using HealthCareSystem.Infrastructure.ExternalServices.HttpClients.Patient;
-using HealthCareSystem.Infrastructure.Persistence;
+using HealthCareSystem.AppointmentsAPI.Application.Interfaces.Doctor;
+using HealthCareSystem.AppointmentsAPI.Application.Interfaces.Patient;
+using HealthCareSystem.AppointmentsAPI.Domain.Models;
+using HealthCareSystem.AppointmentsAPI.Domain.ValueObjects;
+using HealthCareSystem.AppointmentsAPI.Infrastructure.ExternalServices.gRPCClients.Document;
+using HealthCareSystem.AppointmentsAPI.Infrastructure.ExternalServices.HttpClients.Doctor;
+using HealthCareSystem.AppointmentsAPI.Infrastructure.ExternalServices.HttpClients.Patient;
+using HealthCareSystem.AppointmentsAPI.Infrastructure.Persistence;
 using HealthCareSystem.IntegratedEvents.Events;
-using HealthCareSystem.Presentation.DTOs.Request.Appointment;
-using HealthCareSystem.Presentation.DTOs.Response;
+using HealthCareSystem.AppointmentsAPI.Presentation.DTOs.Request.Appointment;
+using HealthCareSystem.AppointmentsAPI.Presentation.DTOs.Response;
 using MassTransit;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace HealthCareSystem.Presentation.Controllers
+namespace HealthCareSystem.AppointmentsAPI.Presentation.Controllers
 {
     [ApiController]
     public class AppointmentController(

@@ -1,8 +1,8 @@
-﻿using gRPCDocuments.Domain.Models;
-using gRPCDocuments.Infrastructure.Persistence.Configuration;
+﻿using HealthCareSystem.gRPCDocuments.Domain.Models;
+using HealthCareSystem.gRPCDocuments.Infrastructure.Persistence.Configuration;
 using Microsoft.EntityFrameworkCore;
 
-namespace gRPCDocuments.Infrastructure.Persistence
+namespace HealthCareSystem.gRPCDocuments.Infrastructure.Persistence
 {
     public class DocumentDbContext : DbContext
     {

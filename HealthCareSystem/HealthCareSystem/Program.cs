@@ -1,9 +1,9 @@
-using HealthCareSystem.Application.Interfaces.Doctor;
-using HealthCareSystem.Application.Interfaces.Patient;
-using HealthCareSystem.Infrastructure.ExternalServices.HttpClients.Doctor;
-using HealthCareSystem.Infrastructure.ExternalServices.HttpClients.Patient;
-using HealthCareSystem.Infrastructure.Messaging.Consumers;
-using HealthCareSystem.Infrastructure.Persistence;
+using HealthCareSystem.AppointmentsAPI.Application.Interfaces.Doctor;
+using HealthCareSystem.AppointmentsAPI.Application.Interfaces.Patient;
+using HealthCareSystem.AppointmentsAPI.Infrastructure.ExternalServices.HttpClients.Doctor;
+using HealthCareSystem.AppointmentsAPI.Infrastructure.ExternalServices.HttpClients.Patient;
+using HealthCareSystem.AppointmentsAPI.Infrastructure.Messaging.Consumers;
+using HealthCareSystem.AppointmentsAPI.Infrastructure.Persistence;
 using MassTransit;
 using Microsoft.EntityFrameworkCore;
 

@@ -1,4 +1,4 @@
-﻿namespace HealthCareSystem.Infrastructure.ExternalServices.HttpClients.Doctor
+﻿namespace HealthCareSystem.AppointmentsAPI.Infrastructure.ExternalServices.HttpClients.Doctor
 {
     public record DoctorResponse(
         Guid DoctorId,

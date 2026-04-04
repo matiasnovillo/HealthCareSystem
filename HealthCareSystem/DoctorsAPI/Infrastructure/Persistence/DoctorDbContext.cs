@@ -1,8 +1,8 @@
-﻿using DoctorsAPI.Domain.Models;
-using DoctorsAPI.Infrastructure.Persistence.Configurations;
+﻿using HealthCareSystem.DoctorsAPI.Domain.Models;
+using HealthCareSystem.DoctorsAPI.Infrastructure.Persistence.Configurations;
 using Microsoft.EntityFrameworkCore;
 
-namespace DoctorsAPI.Infrastructure.Persistence
+namespace HealthCareSystem.DoctorsAPI.Infrastructure.Persistence
 {
     public class DoctorDbContext : DbContext
     {

@@ -3,22 +3,22 @@
     "Name": "Nuevo perfil",
     "Projects": [
       {
-        "Path": "HealthCareSystem\\HealthCareSystem.csproj",
+        "Path": "HealthCareSystem\\HealthCareSystem.AppointmentsAPI.csproj",
         "Action": "Start",
         "DebugTarget": "https"
       },
       {
-        "Path": "DoctorsAPI\\DoctorsAPI.csproj",
+        "Path": "DoctorsAPI\\HealthCareSystem.DoctorsAPI.csproj",
         "Action": "Start",
         "DebugTarget": "https"
       },
       {
-        "Path": "PatientsAPI\\PatientsAPI.csproj",
+        "Path": "PatientsAPI\\HealthCareSystem.PatientsAPI.csproj",
         "Action": "Start",
         "DebugTarget": "https"
       },
       {
-        "Path": "gRPCDocuments\\gRPCDocuments.csproj",
+        "Path": "gRPCDocuments\\HealthCareSystem.gRPCDocuments.csproj",
         "Action": "Start",
         "DebugTarget": "https"
       }

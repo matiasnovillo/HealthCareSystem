@@ -1,5 +1,5 @@
 syntax = "proto3";
-option csharp_namespace = "gRPCDocuments.Protos";
+option csharp_namespace = "HealthCareSystem.gRPCDocuments.Protos";
 package Document;
 service DocumentService {
   rpc GetAll (Empty) returns (DocumentList);

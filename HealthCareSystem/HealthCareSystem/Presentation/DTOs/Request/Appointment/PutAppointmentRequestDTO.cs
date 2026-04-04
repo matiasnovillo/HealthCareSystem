@@ -1,4 +1,4 @@
-﻿namespace HealthCareSystem.Presentation.DTOs.Request.Appointment
+﻿namespace HealthCareSystem.AppointmentsAPI.Presentation.DTOs.Request.Appointment
 {
     public record PutAppointmentRequestDTO(
         Guid AppointmentId,

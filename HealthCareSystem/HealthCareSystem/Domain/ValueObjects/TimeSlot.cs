@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace HealthCareSystem.Domain.ValueObjects
+namespace HealthCareSystem.AppointmentsAPI.Domain.ValueObjects
 {
     [Owned]
     public record TimeSlot

@@ -1,20 +1,20 @@
-@HealthCareSystem_HostAddress = http://localhost:5186
+@HealthCareSystem.AppointmentsAPI_HostAddress = http://localhost:5186
 @appointmentId = 25d45048-8ffd-4cb4-b023-99a2d02c5923
 
 ### Retrieve all appointments
-GET {{HealthCareSystem_HostAddress}}/api/Appointment/GetAll
+GET {{HealthCareSystem.AppointmentsAPI_HostAddress}}/api/Appointment/GetAll
 Accept: application/json
 
 ### Retrieve one appointment by ID
-GET {{HealthCareSystem_HostAddress}}/api/Appointment/GetOneByGUID/{{appointmentId}}
+GET {{HealthCareSystem.AppointmentsAPI_HostAddress}}/api/Appointment/GetOneByGUID/{{appointmentId}}
 Accept: application/json
 
 ### Retrieve one appointment with details
-GET {{HealthCareSystem_HostAddress}}/api/Appointment/GetOneByGUID/{{appointmentId}}/Details
+GET {{HealthCareSystem.AppointmentsAPI_HostAddress}}/api/Appointment/GetOneByGUID/{{appointmentId}}/Details
 Accept: application/json
 
 ### Create a new appointment
-POST {{HealthCareSystem_HostAddress}}/api/Appointment/Post
+POST {{HealthCareSystem.AppointmentsAPI_HostAddress}}/api/Appointment/Post
 Content-Type: application/json
 
 {
@@ -28,7 +28,7 @@ Content-Type: application/json
 }
 
 ### Update an appointment
-PUT {{HealthCareSystem_HostAddress}}/api/Appointment/Put/{{appointmentId}}
+PUT {{HealthCareSystem.AppointmentsAPI_HostAddress}}/api/Appointment/Put/{{appointmentId}}
 Content-Type: application/json
 {
   "appointmentId": "{{appointmentId}}",
@@ -42,4 +42,4 @@ Content-Type: application/json
 }
 
 ### Delete an appointment
-DELETE {{HealthCareSystem_HostAddress}}/api/Appointment/Delete/{{appointmentId}}
+DELETE {{HealthCareSystem.AppointmentsAPI_HostAddress}}/api/Appointment/Delete/{{appointmentId}}

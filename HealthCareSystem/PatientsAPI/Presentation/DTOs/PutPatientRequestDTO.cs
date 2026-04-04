@@ -1,4 +1,4 @@
-﻿namespace PatientsAPI.Presentation.DTOs
+﻿namespace HealthCareSystem.PatientsAPI.Presentation.DTOs
 {
     public record PutPatientRequestDTO(
         Guid PatientId,

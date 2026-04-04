@@ -1,8 +1,8 @@
-﻿using HealthCareSystem.Domain.Models;
+﻿using HealthCareSystem.AppointmentsAPI.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace HealthCareSystem.Infrastructure.Persistence.Configurations
+namespace HealthCareSystem.AppointmentsAPI.Infrastructure.Persistence.Configurations
 {
     public class AppointmentConfiguration : IEntityTypeConfiguration<Appointment>
     {

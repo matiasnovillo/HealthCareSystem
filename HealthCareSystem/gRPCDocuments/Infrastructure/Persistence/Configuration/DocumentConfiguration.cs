@@ -1,8 +1,8 @@
-﻿using gRPCDocuments.Domain.Models;
+﻿using HealthCareSystem.gRPCDocuments.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace gRPCDocuments.Infrastructure.Persistence.Configuration
+namespace HealthCareSystem.gRPCDocuments.Infrastructure.Persistence.Configuration
 {
     public class DocumentConfiguration : IEntityTypeConfiguration<Document>
     {

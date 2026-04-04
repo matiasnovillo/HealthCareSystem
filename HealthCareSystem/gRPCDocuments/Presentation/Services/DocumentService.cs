@@ -1,10 +1,10 @@
 using Grpc.Core;
-using gRPCDocuments.Domain.Models;
-using gRPCDocuments.Infrastructure.Persistence;
-using gRPCDocuments.Protos;
+using HealthCareSystem.gRPCDocuments.Domain.Models;
+using HealthCareSystem.gRPCDocuments.Infrastructure.Persistence;
+using HealthCareSystem.gRPCDocuments.Protos;
 using Microsoft.EntityFrameworkCore;
 
-namespace gRPCDocuments.Presentation.Services
+namespace HealthCareSystem.gRPCDocuments.Presentation.Services
 {
     public class DocumentServiceImplementation(DocumentDbContext _context) : DocumentService.DocumentServiceBase
     {

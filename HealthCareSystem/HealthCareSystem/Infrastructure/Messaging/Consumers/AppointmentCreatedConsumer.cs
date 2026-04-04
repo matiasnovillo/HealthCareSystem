@@ -1,12 +1,12 @@
-﻿using HealthCareSystem.Application.Interfaces.Doctor;
-using HealthCareSystem.Application.Interfaces.Patient;
-using HealthCareSystem.Infrastructure.ExternalServices.HttpClients.Doctor;
-using HealthCareSystem.Infrastructure.ExternalServices.HttpClients.Patient;
+﻿using HealthCareSystem.AppointmentsAPI.Application.Interfaces.Doctor;
+using HealthCareSystem.AppointmentsAPI.Application.Interfaces.Patient;
+using HealthCareSystem.AppointmentsAPI.Infrastructure.ExternalServices.HttpClients.Doctor;
+using HealthCareSystem.AppointmentsAPI.Infrastructure.ExternalServices.HttpClients.Patient;
 using HealthCareSystem.IntegratedEvents.Events;
 using MassTransit;
 using System.Collections.Concurrent;
 
-namespace HealthCareSystem.Infrastructure.Messaging.Consumers
+namespace HealthCareSystem.AppointmentsAPI.Infrastructure.Messaging.Consumers
 {
     public class AppointmentCreatedConsumer(IPatientService _patientService, IDoctorService _doctorService) : IConsumer<AppointmentCreated>
     {

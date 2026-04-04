@@ -1,16 +1,16 @@
-@DoctorsAPI_HostAddress = http://localhost:5244
+@HealthCareSystem.DoctorsAPI_HostAddress = http://localhost:5244
 @doctorId = 7caefab0-c20c-4569-bd4a-5f1a17f28412
 
 ### Retrieve all doctors
-GET {{DoctorsAPI_HostAddress}}/api/Doctor/GetAll
+GET {{HealthCareSystem.DoctorsAPI_HostAddress}}/api/Doctor/GetAll
 Accept: application/json
 
 ### Retrieve one doctor by ID
-GET {{DoctorsAPI_HostAddress}}/api/Doctor/GetOneByGUID/{{doctorId}}
+GET {{HealthCareSystem.DoctorsAPI_HostAddress}}/api/Doctor/GetOneByGUID/{{doctorId}}
 Accept: application/json
 
 ### Create a new doctor
-POST {{DoctorsAPI_HostAddress}}/api/Doctor/Post
+POST {{HealthCareSystem.DoctorsAPI_HostAddress}}/api/Doctor/Post
 Content-Type: application/json
 
 {
@@ -20,7 +20,7 @@ Content-Type: application/json
 }
 
 ### Update a doctor
-PUT {{DoctorsAPI_HostAddress}}/api/Doctor/Put/{{doctorId}}
+PUT {{HealthCareSystem.DoctorsAPI_HostAddress}}/api/Doctor/Put/{{doctorId}}
 Content-Type: application/json
 {
   "doctorId": "{{doctorId}}",
@@ -30,4 +30,4 @@ Content-Type: application/json
 }
 
 ### Delete a doctor
-DELETE {{DoctorsAPI_HostAddress}}/api/Doctor/Delete/{{doctorId}}
+DELETE {{HealthCareSystem.DoctorsAPI_HostAddress}}/api/Doctor/Delete/{{doctorId}}

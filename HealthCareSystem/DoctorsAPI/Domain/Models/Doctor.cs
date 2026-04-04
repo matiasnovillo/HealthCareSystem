@@ -1,4 +1,4 @@
-﻿namespace DoctorsAPI.Domain.Models
+﻿namespace HealthCareSystem.DoctorsAPI.Domain.Models
 {
     public class Doctor
     {

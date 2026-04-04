@@ -1,4 +1,4 @@
-﻿namespace gRPCDocuments.Domain.Models
+﻿namespace HealthCareSystem.gRPCDocuments.Domain.Models
 {
     public class Document
     {

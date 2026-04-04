@@ -1,6 +1,6 @@
-﻿using HealthCareSystem.Application.Interfaces.Patient;
+﻿using HealthCareSystem.AppointmentsAPI.Application.Interfaces.Patient;
 
-namespace HealthCareSystem.Infrastructure.ExternalServices.HttpClients.Patient
+namespace HealthCareSystem.AppointmentsAPI.Infrastructure.ExternalServices.HttpClients.Patient
 {
     public class PatientApiClient(HttpClient httpClient) : IPatientService
     {
