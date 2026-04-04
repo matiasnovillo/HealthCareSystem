@@ -1,5 +1,5 @@
 ﻿using DoctorsAPI.Domain.Models;
-using HealthCareSystem.Infrastructure.Persistence.Configurations;
+using DoctorsAPI.Infrastructure.Persistence.Configurations;
 using Microsoft.EntityFrameworkCore;
 
 namespace DoctorsAPI.Infrastructure.Persistence

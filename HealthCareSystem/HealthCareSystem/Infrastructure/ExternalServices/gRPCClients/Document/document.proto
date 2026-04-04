@@ -2,26 +2,43 @@
 option csharp_namespace = "HealthCareSystem.Infrastructure.ExternalServices.gRPCClients.Document";
 package Document;
 service DocumentService {
-  rpc GetAll (PatientId) returns (DocumentList);
-  rpc Get (DocumentId) returns (Document);
+  rpc GetAll (Empty) returns (DocumentList);
+  rpc GetAllByPatientId (PatientId) returns (DocumentList);
+  rpc GetOneByDocumentId (DocumentId) returns (GrpcDocument);
+  rpc Post (GrpcPostDocument) returns (Empty);
+  rpc Put (GrpcPutDocument) returns (Empty);
+  rpc DeleteAll (Empty) returns (Empty);
+  rpc DeleteAllByPatientId (PatientId) returns (Empty);
+  rpc DeleteOneByDocumentId (DocumentId) returns (Empty);
 }
 
 message Empty{}
 
-message Document {
-  string patientId = 1;
-  string name = 2;
-  string Id = 3;
+message PatientId {
+  string id = 1;
 }
 
 message DocumentList{
-    repeated Document documents = 1; 
+    repeated GrpcDocument list = 1; 
 }
 
 message DocumentId {
-  string Id = 1;
+  string id = 1;
 }
 
-message PatientId {
-  string Id = 1;
+message GrpcDocument {
+  string documentId = 1;
+  string patientId = 2;
+  string url = 3;
+}
+
+message GrpcPostDocument {
+  string patientId = 1;
+  string url = 2;
+}
+
+message GrpcPutDocument {
+  string documentId = 1;
+  string patientId = 2;
+  string url = 3;
 }

@@ -7,7 +7,7 @@ using HealthCareSystem.Infrastructure.ExternalServices.gRPCClients.Document;
 using HealthCareSystem.Infrastructure.ExternalServices.HttpClients.Doctor;
 using HealthCareSystem.Infrastructure.ExternalServices.HttpClients.Patient;
 using HealthCareSystem.Infrastructure.Persistence;
-using HealthCareSystem.Presentation.DTOs.Request;
+using HealthCareSystem.Presentation.DTOs.Request.Appointment;
 using HealthCareSystem.Presentation.DTOs.Response;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -57,7 +57,7 @@ namespace HealthCareSystem.Presentation.Controllers
             //gRPC calls
             using GrpcChannel GrpcChannel = GrpcChannel.ForAddress(_configuration["GrpcEndpoints:DocumentService"]);
             var Client = new DocumentService.DocumentServiceClient(GrpcChannel);
-            var documents = await Client.GetAllAsync(new PatientId { Id = PatientResponse.PatientId.ToString() });
+            DocumentList lstDocument = await Client.GetAllByPatientIdAsync(new PatientId { Id = PatientResponse.PatientId.ToString() });
 
             AppointmentDetailsDTO AppointmentDetailsDTO = new(
                 id,
@@ -68,7 +68,7 @@ namespace HealthCareSystem.Presentation.Controllers
                 Appointment.Location.RoomNumber,
                 Appointment.Location.Building,
                 Appointment.Purpose,
-                documents
+                lstDocument
                 );
 
             return Ok(AppointmentDetailsDTO);
@@ -102,7 +102,7 @@ namespace HealthCareSystem.Presentation.Controllers
             }
             catch (ArgumentException ex)
             {
-                return BadRequest(ex.Message);
+                return StatusCode(500, ex);
             }
         }
 

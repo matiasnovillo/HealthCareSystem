@@ -1,0 +1,45 @@
+@HealthCareSystem_HostAddress = http://localhost:5186
+@patientId = d76d0ef5-7fe7-42a6-99cf-5df297968d9b
+@documentId = 383938d8-e47e-4fef-b675-71515fa11cf3
+
+### Retrieve all documents
+GET {{HealthCareSystem_HostAddress}}/api/Document/GetAll
+Accept: application/json
+
+### Retrieve all documents by patient ID
+GET {{HealthCareSystem_HostAddress}}/api/Document/GetAllByPatientId/{{patientId}}
+Accept: application/json
+
+### Retrieve one document by ID
+GET {{HealthCareSystem_HostAddress}}/api/Document/GetOneByDocumentId/{{documentId}}
+Accept: application/json
+
+### Create a new document
+POST {{HealthCareSystem_HostAddress}}/api/Document/Post
+Content-Type: application/json
+
+{
+  "patientId": "{{patientId}}",
+  "url": "https://123.com/hola.pdf"
+}
+
+### Update a document
+PUT {{HealthCareSystem_HostAddress}}/api/Document/Put
+Content-Type: application/json
+{
+  "documentId": "{{documentId}}",
+  "patientId": "{{patientId}}",
+  "url": "https://456.com/chau.pdf"
+}
+
+### Delete all documents
+DELETE {{HealthCareSystem_HostAddress}}/api/Document/DeleteAll
+Accept: application/json
+
+### Delete all documents by patient ID
+DELETE {{HealthCareSystem_HostAddress}}/api/Document/DeleteAllByPatientId/{{patientId}}
+Accept: application/json
+
+### Delete one document by document ID
+DELETE {{HealthCareSystem_HostAddress}}/api/Document/DeleteOneByDocumentId/{{documentId}}
+Accept: application/json
